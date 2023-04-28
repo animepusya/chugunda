@@ -113,7 +113,7 @@ struct ContentView: View {
                         .foregroundColor(Color.white)
                         .font(.title)
                         .fontWeight(.heavy)
-                    .foregroundColor(Color.black)}).alert("ЁБАНЫЙ РОТТ ЭТОГО КАЗИНО БЛЯДЬ", isPresented: $showingAlert) {
+                    .foregroundColor(Color.black)}).alert("ЁБАНЫЙ РОТ ЭТОГО КАЗИНО БЛЯДЬ", isPresented: $showingAlert) {
                         Button("OK", role: .cancel) { }
                     }
                 
