@@ -17,8 +17,6 @@ struct ContentView: View {
     
     @State var money = 1000
     @State var prevSpin = 0
-    @State var message = ""
-
     
     var body: some View {
         
@@ -34,38 +32,44 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
                 
-                Spacer()
-                
-                HStack {
-                    Text("Деньги:")
-                        .font(.title2)
-                        .foregroundColor(Color.white)
-                    
-                    Text(String(money)).foregroundColor(Color.white).font(.title2)
-
-                }
+                Spacer(minLength: 200)
                             
-                Spacer()
-                
-                HStack {
+                GeometryReader { geo in
                     
-                    Spacer()
+                    VStack () {
+                        
+                        HStack() {
+                            Text("Денег:")
+                                .font(.title2)
+                                .foregroundColor(Color.white)
+                            
+                            Text(String(money)).foregroundColor(Color.white).font(.title2)
+                        }
+                        
+                        HStack {
+                            
+                            ZStack {
+                                
+                                Rectangle()
+                                    .opacity(0.8)
+                                    .cornerRadius(30)
+                                
+                                HStack {
+                                    Image(chugImage).resizable().scaledToFit()
+                                    
+                                    Spacer()
+                                    
+                                    Image(chugImage12).resizable().scaledToFit()
+                                    
+                                    Spacer()
 
-                    Image(chugImage).resizable().scaledToFit()
-                    
-                    Spacer()
-                    
-                    Image(chugImage12).resizable().scaledToFit()
-                    
-                    Spacer()
-
-                    Image(chugImage13).resizable().scaledToFit()
-                    
-                    Spacer()
-
-                }
-                
-                Spacer()
+                                    Image(chugImage13).resizable().scaledToFit()
+                                    
+                                }.padding(10)
+                            }
+                        }.frame(minHeight: 150, maxHeight: 150)
+                    }
+                }.padding(10)
                 
                 HStack {
                     
@@ -73,9 +77,6 @@ struct ContentView: View {
                     Text(String(prevSpin)).font(.title2).foregroundColor(Color.white)
                     
                 }
-                
-                
-                Spacer()
                 
                 Button(action: {money += 1000}, label: { Text("Пополнить через Qiwi терминал \nв Продуктах 24")}).foregroundColor(.white).padding(20).opacity(money > 0 ? 0 : 1)
                 
@@ -118,8 +119,6 @@ struct ContentView: View {
                     }
                 
             }
-            .padding()
-
         }
         
             }
